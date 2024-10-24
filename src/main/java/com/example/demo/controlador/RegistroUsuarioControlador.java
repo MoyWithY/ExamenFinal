@@ -37,7 +37,7 @@ public class RegistroUsuarioControlador {
 	}
 	
 	
-	@PostMapping("path")
+	@PostMapping
 	public String registrarCuentaDeUsuario (@ModelAttribute ("usuario") UsuarioRegistroDTO registroDTO ){
 		//TODO: process POST request
 		usuarioServicio.guardar(registroDTO);
