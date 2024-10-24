@@ -5,6 +5,7 @@ package com.example.demo.entidades1;
 
 
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 import org.hibernate.annotations.Cascade;
@@ -51,7 +52,7 @@ public class Usuarios {
     
     
     
-    @Column(name="fechaNacimiento")
+    @Column(name="fecha_nacimiento")
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @NotNull(message = "La fecha de nacimiento es requerida")
     private String fechaNacimiento;
@@ -63,11 +64,14 @@ public class Usuarios {
     @Column(name="email")
     private String email;
 
+
+    @Column(name = "fecha_registro", updatable = false)
+    private LocalDateTime fechaRegistro;
+    
     
     @Column(name="contrasena")
     @NotBlank(message = "La contraseña es requerida")
     private String contrasena;
-    
     
     @ManyToMany(fetch =FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
@@ -78,9 +82,21 @@ public class Usuarios {
     
      private Collection<Rol> roles;
     
+
     
-    
-    public Usuarios() {
+    public LocalDateTime getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+
+
+	public void setFechaRegistro(LocalDateTime fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
+
+
+	public Usuarios() {
     	
     }
 

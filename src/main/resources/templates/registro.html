@@ -73,7 +73,21 @@
             
 			<div>
             <button type="submit" class="btn btn-success">Registrar</button>
+            
+            <div class="row">
             <span>si esta registrado  <a th:href="@{/login}">inicia sesion</a></span>
+            </div>
+            
+            
+            
+                <div class="row"></div>
+              <span>para ver los ultimos registros <a th:href="@{/registro/usuarios}">Lista de ultimos usuarios registrados</a></span>
+              
+            </div>
+            
+            <div class="row"></div>
+              <span>para hacer pdf<a th:href="@{/registro/usuarioReport}"> pdf</a></span>
+              
             </div>
         </form>
     </div>

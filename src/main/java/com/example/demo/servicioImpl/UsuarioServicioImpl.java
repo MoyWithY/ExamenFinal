@@ -1,7 +1,10 @@
 package com.example.demo.servicioImpl;
 
 import java.util.Arrays;
+import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto2.UsuarioRegistroDTO;
@@ -30,6 +33,18 @@ public class UsuarioServicioImpl implements UsuarioServicio {
 		Usuarios usuario =  new Usuarios(registroDTO.getNombre(),registroDTO.getApellidos(),
 			registroDTO.getFechaNacimiento(),registroDTO.getEmail(), registroDTO.getContrasena(), Arrays.asList(new Rol("Role_user"))	);
 		return usuarioRepositorio.save(usuario);
+	}
+
+
+
+	
+
+
+
+	@Override
+	public List<Usuarios> listar() {
+		// TODO Auto-generated method stub
+		return usuarioRepositorio.findAll();
 	}
 
 }
